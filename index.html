@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yunhsuan Cheng - New Media Artist</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- 3D Canvas Container -->
+    <div id="canvas-container"></div>
+    
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    
+    <!-- Background Layers for Image Effects -->
+    <div class="background-layer"></div>
+    <div class="background-overlay"></div>
+    
+    <!-- Menu Button -->
+    <div class="menu-button">
+        <div class="menu-icon">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+    </div>
+
+    <!-- Full Screen Menu Overlay -->
+    <div class="menu-overlay">
+        <button class="close-menu">&times;</button>
+        <div class="menu-content">
+            <nav class="menu-nav">
+                <ul>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="projects.html">PROJECTS</a></li>
+                    <!-- <li><a href="gallery.html">GALLERY</a></li> -->
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Main Content Sections -->
+    <div class="content">
+        <!-- Hero Section with Floating Spheres -->
+        <section class="section hero" id="home">
+            <div>
+                <h1>YunHsuan Cheng</h1>
+                <p>New Media Artist / Digital Creator</p>
+                <div class="hero-instruction">
+                    <p>Hover over the floating spheres to explore projects</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Project Tooltip for Sphere Hover -->
+    <div class="project-tooltip">
+        <h3></h3>
+        <p></p>
+    </div>
+<!-- Footer with Contact Section -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="contact-content">
+                <h2>Available for freelance</h2>
+                <div class="contact-info">
+                    <div class="social-section">
+                        <div class="contact-links">
+                            <a href="https://instagram.com/sam_smt_c" class="contact-link" target="_blank" rel="noopener">
+                                <span class="link-text">INSTAGRAM</span>
+                                <span class="link-arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <p class="email-text">
+                        <a href="mailto:yunhsuan.technoart@outlook.com" class="email-simple">yunhsuan.technoart@outlook.com</a>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Optional: Add copyright or additional footer info -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 YunHsuan Cheng. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

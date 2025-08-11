@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Yunhsuan Cheng</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* About页面改进设计 */
+        .about-page {
+            min-height: 100vh;
+            position: relative;
+            z-index: 2;
+            overflow-x: hidden;
+        }
+
+        /* 动态背景粒子 */
+        .about-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .about-hero-content {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        /* 左侧文字区域 */
+        .about-text-area {
+            position: relative;
+        }
+
+        .about-text-area::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #ffffff, rgba(255,255,255,0.3), transparent);
+            animation: heightGrow 2s ease-out;
+        }
+
+        @keyframes heightGrow {
+            from { height: 0%; }
+            to { height: 100%; }
+        }
+
+        .about-title {
+            font-size: clamp(4rem, 8vw, 7rem);
+            font-weight: 100;
+            color: #ffffff;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+            font-family: 'Courier', monospace;
+            text-shadow: 0 0 30px rgba(255,255,255,0.4);
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+        }
+
+        .about-title::after {
+            content: '_';
+            color: rgba(255,255,255,0.7);
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .about-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            font-family: 'Courier', monospace;
+            letter-spacing: 0.1em;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .about-description {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Courier', monospace;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .about-description .highlight {
+            color: #ffffff;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            border-left: 3px solid rgba(255,255,255,0.6);
+            font-weight: 400;
+        }
+
+        /* 右侧视觉区域 */
+        .about-visual-area {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 600px;
+        }
+
+        .image-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            animation: fadeInScale 1s ease-out 0.9s both;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 100%;
+            background-image: url('images/pr1.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.4),
+                0 0 80px rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                from 0deg,
+                transparent,
+                rgba(255,255,255,0.1),
+                transparent,
+                rgba(255,255,255,0.05),
+                transparent
+            );
+            animation: rotate 10s linear infinite;
+        }
+
+        .main-image::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background-image: url('images/pr1.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 30px;
+        }
+
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        .main-image:hover {
+            transform: scale(1.05) rotateY(5deg) rotateX(2deg);
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.5),
+                0 0 100px rgba(255, 255, 255, 0.2);
+        }
+
+        /* 浮动装饰元素 */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .floating-element:nth-child(1) {
+            top: 10%;
+            right: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(2) {
+            bottom: 20%;
+            left: 10%;
+            width: 40px;
+            height: 40px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        .floating-element:nth-child(3) {
+            top: 60%;
+            right: 20%;
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            animation: float 7s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* 详细信息展示区域 */
+        .details-showcase {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .details-title {
+            font-size: 2.5rem;
+            font-weight: 100;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 4rem;
+            font-family: 'Courier', monospace;
+            letter-spacing: 0.1em;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .detail-category {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .detail-category:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+        }
+
+        .detail-category h3 {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-family: 'Courier', monospace;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .detail-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .detail-item {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1rem;
+            font-family: 'Courier', monospace;
+            padding: 0.8rem 0;
+            border-left: 2px solid transparent;
+            padding-left: 1rem;
+            transition: all 0.3s ease;
+            line-height: 1.6;
+        }
+
+        .detail-item:hover {
+            color: #ffffff;
+            border-left-color: rgba(255, 255, 255, 0.6);
+            transform: translateX(5px);
+        }
+
+        .detail-item strong {
+            color: #ffffff;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .detail-item .period {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        /* 返回按钮 */
+        .back-navigation {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
+        }
+
+        .back-btn {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            font-family: 'Courier', monospace;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+            color: #ffffff;
+            transform: translateX(-5px);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .about-hero-content {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+                text-align: center;
+            }
+
+            .image-container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-title {
+                font-size: 3rem;
+            }
+
+            .image-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .details-showcase {
+                padding: 4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- 动态粒子背景 -->
+    <canvas class="about-particles" id="particles"></canvas>
+
+    <!-- Back Navigation -->
+    <div class="back-navigation">
+        <a href="index.html" class="back-btn">← BACK HOME</a>
+    </div>
+
+    <!-- About Page Content -->
+    <main class="about-page">
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <div class="about-hero-content">
+                <div class="about-text-area">
+                    <h1 class="about-title">Bio</h1>
+                    <p class="about-subtitle">Multi-disciplinary Artist / Creative Technologist</p>
+                    
+                    <div class="about-description">
+                        <p>Yun-Hsuan Cheng (Taiwan) is a <span class="highlight">multi-disciplinary artist</span> who specializes in various fields, such as creative programming, AI art, experimental sound art, audiovisual design, and kinetic installation.</p>
+                        
+                        <p>Her work revolves around <span class="highlight">experimental sound performance, live coding, and interactive kinetic art installations</span>. She is deeply concerned about the needs of society and environmental sustainability, as well as advocating for LGBT rights.</p>
+                        
+                        <p>Currently, she is studying <span class="highlight">technology and art at California Institute of the Arts (CalArts)</span>.</p>
+                    </div>
+                </div>
+
+                <div class="about-visual-area">
+                    <div class="floating-elements">
+                        <div class="floating-element"></div>
+                        <div class="floating-element"></div>
+                        <div class="floating-element"></div>
+                    </div>
+                    
+                    <div class="image-container">
+                        <div class="main-image"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Details Showcase -->
+        <section class="details-showcase">
+            <h2 class="details-title">Background & Experience</h2>
+            
+            <div class="details-grid">
+                <div class="detail-category">
+                    <h3>Education</h3>
+                    <div class="detail-list">
+                        <div class="detail-item">
+                            <strong>California Institute of the Arts (CalArts)</strong>
+                            <div class="period">2024 - Present</div>
+                            MFA in Technology and Art
+                        </div>
+                        <div class="detail-item">
+                            <strong>National Tsing Hua University</strong>
+                            <div class="period">2020 - 2024</div>
+                            BFA in Science and Technology<br>
+                            Interdisciplinary Programme of Technology and Art
+                        </div>
+                        <div class="detail-item">
+                            <strong>Festival University</strong>
+                            <div class="period">2022 Aug - Sep</div>
+                            ECTS certificates<br>
+                            launched by Ars Electronica Centre & Johannes Kepler University
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-category">
+                    <h3>Awards</h3>
+                    <div class="detail-list">
+                        <div class="detail-item">
+                            <strong>Special Jury Prize</strong>
+                            <div class="period">2022 May</div>
+                            Tech Art Campus Exhibition<br>
+                            National Tsing Hua University
+                        </div>
+                        <div class="detail-item">
+                            <strong>2nd Place</strong>
+                            <div class="period">2022 Aug - Sep</div>
+                            Creative Concept Biomedical Theme Competition<br>
+                            University Foresight Education Project
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-category">
+                    <h3>Work Experience</h3>
+                    <div class="detail-list">
+                        <div class="detail-item">
+                            <strong>Peppercorns Interactive Media Art</strong>
+                            <div class="period">2022 Oct - 2023 Feb</div>
+                            Internship: Software programming, project management, hardware equipment management, exhibition entry, work recording, and video editing.
+                        </div>
+                        <div class="detail-item">
+                            <strong>Taiwan Lantern Festival in Taipei</strong>
+                            <div class="period">2022 Dec - 2023 Jan</div>
+                            Sound effects designer in Event social media filter project
+                        </div>
+                        <div class="detail-item">
+                            <strong>Art X Technology Exhibition</strong>
+                            <div class="period">2020 Aug - Present</div>
+                            Member of Sandbox Rebuild Project, Taoyuan
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="detail-category">
+                    <h3>Other Experience</h3>
+                    <div class="detail-list">
+                        <div class="detail-item">
+                            <strong>National Tsinghua University Student Association</strong>
+                            <div class="period">2021 Sep - 2022 Aug</div>
+                            Arrange large-scale campus activities, garden parties, concerts
+                        </div>
+                        <div class="detail-item">
+                            <strong>DongFong Music Festival</strong>
+                            <div class="period">2021 Sep - 2022 Aug</div>
+                            Mixing engineer, Arranger
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Custom cursor
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Cursor hover effects
+        const hoverElements = document.querySelectorAll('.back-btn, .detail-category, .main-image');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // Particle background
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const particles = [];
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                size: Math.random() * 2 + 1
+            });
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.1})`;
+                ctx.fill();
+                
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                
+                if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+                if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+            });
+            
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+    </script>
+    <!-- Footer with Contact Section -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="contact-content">
+                <h2>Available for freelance</h2>
+                <div class="contact-info">
+                    <div class="social-section">
+                        <div class="contact-links">
+                            <a href="https://instagram.com/sam_smt_c" class="contact-link" target="_blank" rel="noopener">
+                                <span class="link-text">INSTAGRAM</span>
+                                <span class="link-arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <p class="email-text">
+                        <a href="mailto:yunhsuan.technoart@outlook.com" class="email-simple">yunhsuan.technoart@outlook.com</a>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 YunHsuan Cheng. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
