@@ -18,7 +18,8 @@ const projects = [
         velocity: { x: 0.3, y: 1.8, z: 0.4 },
         // backgroundImage: "videos/東門聲景.mp4",\
         projectUrl: "Soundscape.html",
-        videoPath: "videos/index_video/Soundscape_index.mp4", // 添加影片路徑
+        backgroundImage: "images/Soundscape/SC_index.png",
+        // videoPath: "videos/index_video/Soundscape_index.mp4", // 添加影片路徑
         size: 45, // 不同大小的球体
         glowColor: 0x75715e
     },
@@ -27,8 +28,8 @@ const projects = [
         description: " A live audio performance that explores the intersection of generative art and sound, creating a dynamic auditory experience that evolves in real-time.",
         position: { x: 280, y: -120, z: -180 },
         velocity: { x: -0.4, y: 2.1, z: 0.3 },
-        backgroundImage: "images/image1.jpg",
-        videoPath: "videos/index_video/EC_intro.mp4",
+        backgroundImage: "images/EC/EC01.jpg",
+        // videoPath: "videos/index_video/EC_intro.mp4",
         projectUrl: "EC.html",
         size: 75,
         glowColor: 0x75715e
@@ -38,8 +39,9 @@ const projects = [
         description: " It utilizes techno music as a medium, representing a form of technological spirituality. It explores the relationship between technology and spirituality, using techno music to create a unique auditory experience.",
         position: { x: -150, y: -180, z: 100 },
         velocity: { x: 0.5, y: 2.3, z: -0.3 },
-        videoPath: "videos/index_video/A-life_index.mp4",
+        // videoPath: "videos/index_video/A-life_index.mp4",
         projectUrl: "A-life.html", // 添加這行
+        backgroundImage:"images/A-life/A-lifescreenshot3.png",
         size: 50,
         glowColor: 0x75715e
     },
@@ -59,8 +61,8 @@ const projects = [
         description: "An audio-reactive installation that transforms space into an immersive concert experience, enveloping audiences in an electronic sound bath through rhythmic immersion to awaken desensitized spirits and encourage vigorous engagement with societal issues.",
         position: { x: 0, y: 180, z: -150 },
         velocity: { x: 0.2, y: 1.7, z: 0.5 },
-        // backgroundImage: "images/quantum.jpg",
-        videoPath: "videos/index_video/jing_index.mp4", // 添加影片路徑
+        backgroundImage: "images/JING/jing01.jpg",
+        // videoPath: "videos/index_video/jing_index.mp4", // 添加影片路徑
         projectUrl: "Jing-SHIN.html", // 添加這行
         size: 60,
         glowColor: 0x75715e
@@ -70,8 +72,8 @@ const projects = [
         description: "This audio-reactive animation is the result of interactive experimentation using TouchDesigner and Ableton. ",
         position: { x: -220, y: 20, z: 150 },
         velocity: { x: 0.6, y: 2.0, z: -0.4 },
-        backgroundImage: "image1.jpg",
-        videoPath: "videos/index_video/The_index.mp4", // 添加影片路徑
+        backgroundImage: "images/The/the02.png",
+        // videoPath: "videos/index_video/The_index.mp4", // 添加影片路徑
         projectUrl: "The.html",
         size: 52,
         glowColor: 0x75715e
@@ -81,8 +83,8 @@ const projects = [
         description: "The real-time interactive rap generator powered by Python connects physical devices to the digital realm.",
         position: { x: 300, y: -280, z: -10 },
         velocity: { x: -0.5, y: 2.4, z: 0.3 },
-        // backgroundImage: "images/echo.jpg",
-        videoPath: "videos/CreaRapper.mp4", // 添加影片路徑
+        backgroundImage: "images/CreaRapper/Crea.avif",
+        // videoPath: "videos/CreaRapper.mp4", // 添加影片路徑
         projectUrl: "CreaRapper.html", // 添加這行
         size: 38,
         glowColor: 0x75715e // 灰褐色发光
@@ -92,8 +94,8 @@ const projects = [
         // description: "video installation that visualizes the evolution of digital art through generative algorithms, creating a living archive of artistic styles.",
         position: { x: 160, y: -280, z: -100 },
         velocity: { x: -0.5, y: 2.4, z: 0.3 },
-        // backgroundImage: "images/echo.jpg",
-        videoPath: "videos/geneology .mov",
+        backgroundImage: "images/gene/gene02.png",
+        // videoPath: "videos/geneology .mov",
         projectUrl: "geneology.html", // 添加這行
         size: 38,
         glowColor: 0x75715e // 灰褐色发光
