@@ -99,6 +99,17 @@ const projects = [
         projectUrl: "geneology.html", // 添加這行
         size: 38,
         glowColor: 0x75715e // 灰褐色发光
+    },
+    {
+        title: "Still Singing",
+        // description: "video installation that visualizes the evolution of digital art through generative algorithms, creating a living archive of artistic styles.",
+        position: { x: 20, y: -200, z: -10 },
+        velocity: { x: -0.5, y: 2.4, z: 0.3 },
+        backgroundImage: "images/still-singing/SS01.jpg",
+        // videoPath: "videos/geneology .mov",
+        projectUrl: "sweatpotato.html", // 添加這行
+        size: 38,
+        glowColor: 0x75715e // 灰褐色发光
     }
 ];
 
