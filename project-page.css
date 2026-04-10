@@ -151,12 +151,12 @@ body {
 }
 
 .hero-content h1 {
-    font-size: clamp(2.5rem, 6vw, 7rem);
-    font-weight: 100;
+    font-size: clamp(2.5rem, .5vw, 7rem);
+    font-weight: 40;
     letter-spacing: 0.1em;
-    margin-bottom: 1.5rem;
+    margin-bottom: 12rem;
     text-shadow: 0 0 30px rgba(255,255,255,0.3);
-    animation: glow 3s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
@@ -259,6 +259,7 @@ body {
 .content-text p {
     margin-bottom: 1.5rem;
 }
+
 
 .highlight {
     color: #ffffff;
