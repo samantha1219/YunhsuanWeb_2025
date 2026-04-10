@@ -419,6 +419,21 @@ body {
     letter-spacing: 0.02em;
 }
 
+/* 單欄置中概念文字 */
+.concept-single {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.concept-single p {
+    font-size: 1.05rem;
+    line-height: 2;
+    opacity: 0.85;
+    margin-bottom: 2rem;
+    color: #e0e0e0;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .footer {
