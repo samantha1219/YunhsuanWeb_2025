@@ -11,88 +11,113 @@ let backgroundLayer, backgroundOverlay;
 
 // Project data - 重新设计的美学位置布局
 const projects = [
+    
+    {   
+        title: "Can you hear me?",
+        description: " sound installtion",
+        position: { x: -300, y: 100, z: -120 },
+        velocity: { x: 0.3, y: 1.3, z: 0.4 },
+        // backgroundImage: "videos/東門聲景.mp4",\
+        projectUrl: "CanYouHearMe.html",
+        backgroundImage: "images/canyou/canyou01.jpg",
+        // videoPath: "videos/index_video/Soundscape_index.mp4", // 添加影片路徑
+        size: 60, // 不同大小的球体
+        glowColor: 0xC5FCE9
+    },
+    {
+        title: "Chill, Everything’s Fine.",
+        description: " An immersive soundscape mapping project that transforms markets spaces into interactive audio-visual experiences, blending real-world sounds with digital projections.",
+        position: { x: 155, y: 150, z: 0 },
+        velocity: { x: 0.3, y: 1.8, z: 0.4 },
+        // backgroundImage: "videos/東門聲景.mp4",\
+        projectUrl: "Chill.html",
+        backgroundImage: "images/Chill/chill01.jpg",
+        // videoPath: "videos/index_video/Soundscape_index.mp4", // 添加影片路徑
+        size: 55, // 不同大小的球体
+        glowColor: 0xFFDFA6
+    },
     {
         title: "Soundscape Mapping",
         description: " An immersive soundscape mapping project that transforms markets spaces into interactive audio-visual experiences, blending real-world sounds with digital projections.",
-        position: { x: -400, y: 200, z: -120 },
-        velocity: { x: 0.3, y: 1.8, z: 0.4 },
+        position: { x: -400, y: 300, z: -120 },
+        velocity: { x: 0.3, y: 0.8, z: 0.4 },
         // backgroundImage: "videos/東門聲景.mp4",\
         projectUrl: "Soundscape.html",
         backgroundImage: "images/Soundscape/SC_index.png",
         // videoPath: "videos/index_video/Soundscape_index.mp4", // 添加影片路徑
-        size: 45, // 不同大小的球体
-        glowColor: 0x75715e
+        size: 25, // 不同大小的球体
+        glowColor: 0xFCC5C5
     },
     {
         title: "Exisrtential Crisis",
         description: " A live audio performance that explores the intersection of generative art and sound, creating a dynamic auditory experience that evolves in real-time.",
-        position: { x: 280, y: -120, z: -180 },
+        position: { x: 380, y: -120, z: -180 },
         velocity: { x: -0.4, y: 2.1, z: 0.3 },
         backgroundImage: "images/EC/EC01.jpg",
         // videoPath: "videos/index_video/EC_intro.mp4",
         projectUrl: "EC.html",
-        size: 75,
-        glowColor: 0x75715e
+        size: 45,
+        glowColor: 0xD4C5FC
     },
     {
         title: "A-life experiment",
         description: " It utilizes techno music as a medium, representing a form of technological spirituality. It explores the relationship between technology and spirituality, using techno music to create a unique auditory experience.",
-        position: { x: -150, y: -180, z: 100 },
+        position: { x: -550, y: -180, z: -100 },
         velocity: { x: 0.5, y: 2.3, z: -0.3 },
         // videoPath: "videos/index_video/A-life_index.mp4",
         projectUrl: "A-life.html", // 添加這行
         backgroundImage:"images/A-life/A-lifescreenshot3.png",
-        size: 50,
-        glowColor: 0x75715e
+        size: 30,
+        glowColor: 0xFFBFC0
     },
     {
         title: "Euphoria",
         description: "An interactive kinetic installation exploring the relationship between technology and human emotion.",
-        position: { x: 200, y: 220, z: -100 },
+        position: { x: 450, y: 220, z: -100 },
         velocity: { x: -0.3, y: 1.9, z: 0.2 },
         backgroundImage: "images/Euphoria/euphoria01.jpg",
         // videoPath:"videos/index_video/Euphoria.mov", // 添加影片路徑
-        size: 40,
+        size: 30,
         projectUrl: "Euphoria.html", // 添加這行
-        glowColor:0x75715e
+        glowColor:0xFAEEC0
     },
     {
         title: "\"精神抖擻~!\"",
         description: "An audio-reactive installation that transforms space into an immersive concert experience, enveloping audiences in an electronic sound bath through rhythmic immersion to awaken desensitized spirits and encourage vigorous engagement with societal issues.",
-        position: { x: 0, y: 180, z: -150 },
+        position: { x: 0, y: 280, z: -150 },
         velocity: { x: 0.2, y: 1.7, z: 0.5 },
         backgroundImage: "images/JING/jing01.jpg",
         // videoPath: "videos/index_video/jing_index.mp4", // 添加影片路徑
         projectUrl: "Jing-SHIN.html", // 添加這行
-        size: 60,
-        glowColor: 0x75715e
+        size: 40,
+        glowColor: 0xFFBFFF
     },
     {
         title: "The(樂)",
         description: "This audio-reactive animation is the result of interactive experimentation using TouchDesigner and Ableton. ",
-        position: { x: -220, y: 20, z: 150 },
+            position: { x: 300, y: -380, z: -200 },
         velocity: { x: 0.6, y: 2.0, z: -0.4 },
         backgroundImage: "images/The/the02.png",
         // videoPath: "videos/index_video/The_index.mp4", // 添加影片路徑
         projectUrl: "The.html",
         size: 52,
-        glowColor: 0x75715e
+        glowColor: 0xC5FCE9
     },
-    {
-        title: "CreaRapper",
-        description: "The real-time interactive rap generator powered by Python connects physical devices to the digital realm.",
-        position: { x: 300, y: -280, z: -10 },
-        velocity: { x: -0.5, y: 2.4, z: 0.3 },
-        backgroundImage: "images/CreaRapper/Crea.avif",
-        // videoPath: "videos/CreaRapper.mp4", // 添加影片路徑
-        projectUrl: "CreaRapper.html", // 添加這行
-        size: 38,
-        glowColor: 0x75715e // 灰褐色发光
-    },
+    // {
+    //     title: "CreaRapper",
+    //     description: "The real-time interactive rap generator powered by Python connects physical devices to the digital realm.",
+    //     position: { x: 300, y: -280, z: -10 },
+    //     velocity: { x: -0.5, y: 2.4, z: 0.3 },
+    //     backgroundImage: "images/CreaRapper/Crea.avif",
+    //     // videoPath: "videos/CreaRapper.mp4", // 添加影片路徑
+    //     projectUrl: "CreaRapper.html", // 添加這行
+    //     size: 38,
+    //     glowColor: 0x75715e // 灰褐色发光
+    // },
     {
         title: "geneology",
         // description: "video installation that visualizes the evolution of digital art through generative algorithms, creating a living archive of artistic styles.",
-        position: { x: 160, y: -280, z: -100 },
+        position: { x: 460, y: -280, z: -100 },
         velocity: { x: -0.5, y: 2.4, z: 0.3 },
         backgroundImage: "images/gene/gene02.png",
         // videoPath: "videos/geneology .mov",
@@ -109,7 +134,7 @@ const projects = [
         // videoPath: "videos/geneology .mov",
         projectUrl: "sweatpotato.html", // 添加這行
         size: 38,
-        glowColor: 0x75715e // 灰褐色发光
+        glowColor: 0xB0D6FF // 灰褐色发光
     }
 ];
 
@@ -252,7 +277,7 @@ function createProjectSpheres() {
         let geometry;
         
         // 根据项目类型创建不同几何体
-        switch(index % 7) {
+        switch(index % 9) {
             case 0: // Digital Meditation - 变形球体
                 geometry = createMorphingSphere(project.size || 40);
                 break;
