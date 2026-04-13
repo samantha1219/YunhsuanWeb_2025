@@ -26,12 +26,12 @@ const projects = [
     },
     {
         title: "Chill, Everything’s Fine.",
-        description: " An immersive soundscape mapping project that transforms markets spaces into interactive audio-visual experiences, blending real-world sounds with digital projections.",
+        description: " An immersive soundscape mapping project that transforms market spaces into interactive audio-visual experiences, blending real-world sounds with digital projections.",
         position: { x: 155, y: 150, z: 0 },
         velocity: { x: 0.3, y: 1.8, z: 0.4 },
         // backgroundImage: "videos/東門聲景.mp4",\
         projectUrl: "Chill.html",
-        backgroundImage: "images/Chill/chill01.jpg",
+        backgroundImage: "images/chill/chill01.jpg",
         // videoPath: "videos/index_video/Soundscape_index.mp4", // 添加影片路徑
         size: 55, // 不同大小的球体
         glowColor: 0xFFDFA6
