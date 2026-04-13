@@ -19,7 +19,7 @@ const projects = [
         velocity: { x: 0.3, y: 1.3, z: 0.4 },
         // backgroundImage: "videos/東門聲景.mp4",\
         projectUrl: "CanYouHearMe.html",
-        backgroundImage: "images/canyou/canyou01.jpg",
+        backgroundImage: "images/Canyou/canyou01.jpg",
         // videoPath: "videos/index_video/Soundscape_index.mp4", // 添加影片路徑
         size: 60, // 不同大小的球体
         glowColor: 0xC5FCE9
