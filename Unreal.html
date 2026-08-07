@@ -51,8 +51,7 @@
         <span class="lbl">63 sec</span>
     </div>
     <div class="ue-reel">
-        <video id="reelVid" controls playsinline preload="auto" muted poster="images
-/unreal/reel_poster.jpg">
+        <video id="reelVid" controls playsinline preload="auto" muted poster="unreal/reel_poster.jpg">
             <source src="videos/unreal_demo_reel.mp4" type="video/mp4">
         </video>
     </div>
@@ -73,7 +72,7 @@
 
         <article class="ue-work w-full rv">
             <div class="ue-work-fig" data-lb="0">
-                <img src="images/unreal/live_stage.jpg" alt="Live show — four MetaHuman characters driven in real time">
+                <img src="unreal/live_stage.jpg" alt="Live show — four MetaHuman characters driven in real time">
             </div>
             <div class="ue-work-cap">
                 <div>
@@ -103,10 +102,10 @@
                 </div>
             </div>
             <div class="ue-char-grid">
-                <div class="ue-work-fig" ><img src="images/unreal/char_3.png" alt="Character — Orc" loading="lazy"></div>
-                <div class="ue-work-fig" ><img src="images/unreal/char_1.png" alt="Character — Monk" loading="lazy"></div>
-                <div class="ue-work-fig" ><img src="images/unreal/char_4.png" alt="Character — Fighter" loading="lazy"></div>
-                <div class="ue-work-fig" ><img src="images/unreal/char_2.png" alt="Character — Elf" loading="lazy"></div>
+                <div class="ue-work-fig" data-lb-img="unreal/char_3.png" data-lb-alt="Character — Orc"><img src="unreal/char_3.png" alt="Character — Orc" loading="lazy"></div>
+                <div class="ue-work-fig" data-lb-img="unreal/char_1.png" data-lb-alt="Character — Monk"><img src="unreal/char_1.png" alt="Character — Monk" loading="lazy"></div>
+                <div class="ue-work-fig" data-lb-img="unreal/char_4.png" data-lb-alt="Character — Fighter"><img src="unreal/char_4.png" alt="Character — Fighter" loading="lazy"></div>
+                <div class="ue-work-fig" data-lb-img="unreal/char_2.png" data-lb-alt="Character — Elf"><img src="unreal/char_2.png" alt="Character — Elf" loading="lazy"></div>
             </div>
             <div class="ue-mtm-inline rv">
                 <div class="ue-mtm-split">
@@ -134,14 +133,14 @@
                         </div>
                     </div>
                     <div class="ue-mtm-imgs">
-                        <div class="ue-view" data-lb="25"><img src="images/unreal/mtm_view_1.jpg" alt="Scan and finished character" loading="lazy"></div>
-                        <div class="ue-view" data-lb="26"><img src="images/unreal/mtm_view_2.jpg" alt="Costumed character beside scan" loading="lazy"></div>
+                        <div class="ue-view" data-lb-img="unreal/mtm_view_1.jpg" data-lb-alt="Scan and finished character"><img src="unreal/mtm_view_1.jpg" alt="Scan and finished character" loading="lazy"></div>
+                        <div class="ue-view" data-lb-img="unreal/mtm_view_2.jpg" data-lb-alt="Costumed character beside scan"><img src="unreal/mtm_view_2.jpg" alt="Costumed character beside scan" loading="lazy"></div>
                     </div>
                 </div>
             </div>
             <div class="ue-mtm-gallery rv">
-                <div class="ue-mtm-gal-img"><img src="images/unreal/cinematic_02.jpg" alt="Cinematic render — environment" loading="lazy"></div>
-                <div class="ue-mtm-gal-img"><img src="images/unreal/cinematic_03.png" alt="Cinematic render — dragon" loading="lazy"></div>
+                <div class="ue-mtm-gal-img"><img src="unreal/cinematic_02.jpg" alt="Cinematic render — environment" loading="lazy"></div>
+                <div class="ue-mtm-gal-img"><img src="unreal/cinematic_03.png" alt="Cinematic render — dragon" loading="lazy"></div>
                 <div class="ue-mtm-gal-vid">
                     <video autoplay muted loop playsinline>
                         <source src="videos/mocap_clip.mp4" type="video/mp4">
@@ -152,7 +151,7 @@
 
         <article class="ue-work w-right rv">
             <div class="ue-work-fig">
-                <img src="images/unreal/theater_stage.jpg" alt="Collaboration — dance theater with real-time mocap">
+                <img src="unreal/theater_stage.jpg" alt="Collaboration — dance theater with real-time mocap">
             </div>
             <div class="ue-work-cap">
                 <span class="lbl">Collaboration</span>
@@ -174,8 +173,8 @@
                 </div>
             </div>
             <div class="ue-char-grid">
-                <div class="ue-work-fig"><img src="images/unreal/niagara_water.jpg" alt="Interactive water simulation reacting to character motion" loading="lazy"></div>
-                <div class="ue-work-fig"><img src="images/unreal/niagara_water2.jpg" alt="Particle response to body motion" loading="lazy"></div>
+                <div class="ue-work-fig"><img src="unreal/niagara_water.jpg" alt="Interactive water simulation reacting to character motion" loading="lazy"></div>
+                <div class="ue-work-fig"><img src="unreal/niagara_water2.jpg" alt="Particle response to body motion" loading="lazy"></div>
             </div>
         </article>
 
@@ -294,8 +293,15 @@ function show(i) {
         String(idx + 1).padStart(2, '0') + '/' + ALL.length;
 }
 function openLb(i) { show(i); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
-function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+function openLbImg(src, alt) {
+    lbI.src = src; lbI.alt = alt; lbC.textContent = alt;
+    lb.classList.add('open', 'single');
+    document.body.style.overflow = 'hidden';
+}
+function closeLb() { lb.classList.remove('open', 'single'); document.body.style.overflow = ''; }
 document.addEventListener('click', function (e) {
+    var s = e.target.closest ? e.target.closest('[data-lb-img]') : null;
+    if (s) { openLbImg(s.dataset.lbImg, s.dataset.lbAlt); return; }
     var t = e.target.closest ? e.target.closest('[data-lb]') : null;
     if (t) openLb(+t.dataset.lb);
 });
@@ -306,6 +312,7 @@ lb.addEventListener('click', function (e) { if (e.target === lb || e.target === 
 document.addEventListener('keydown', function (e) {
     if (!lb.classList.contains('open')) return;
     if (e.key === 'Escape') closeLb();
+    if (lb.classList.contains('single')) return;
     if (e.key === 'ArrowLeft') show(idx - 1);
     if (e.key === 'ArrowRight') show(idx + 1);
 });
