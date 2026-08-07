@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technical Artist — YunHsuan Cheng</title>
+<meta name="description" content="Technical Artist — motion capture to Unreal Engine 5. Live performance pipeline, scan-to-MetaHuman, Niagara VFX, virtual camera design.">
+<link rel="stylesheet" href="unreal-page.css">
+</head>
+<body class="ue">
+
+<nav class="ue-nav" id="nav">
+    <a href="index.html" class="ue-logo">YunHsuan Cheng</a>
+    <div class="ue-nav-right">
+        <a href="#work" class="ue-nav-link">Work</a>
+        <a href="projects.html" class="ue-nav-link">Index</a>
+    </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="ue-hero" id="top">
+    <canvas id="gl"></canvas>
+    <video id="heroSrc" class="ue-hero-fallback" autoplay muted loop playsinline
+           poster="images/unreal/reel_poster.jpg" style="display:none">
+        <source src="videos/char_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="ue-hero-inner">
+        <h1>Technical Artist<span>Real-Time Virtual Production</span></h1>
+        <div class="ue-hero-row">
+            <p>Getting a live human body into a game engine, in real time, in front of an audience.</p>
+            <div class="ue-hero-facts">
+                <div class="ue-fact"><span class="lbl">Role</span><span class="v">Technical Artist</span></div>
+                <div class="ue-fact"><span class="lbl">Engine</span><span class="v">Unreal Engine 5</span></div>
+                <div class="ue-fact"><span class="lbl">Year</span><span class="v">2025 — 2026</span></div>
+            </div>
+        </div>
+        <div class="ue-hero-role">
+            <span class="lbl">Pipeline — mocap ingest · retargeting · facial solve · MetaHuman rig</span>
+            <span class="lbl">Real-time — Live Link · Blueprint · multi-display · show control</span>
+            <span class="lbl">Camera — Sequencer · virtual camera · Movie Render Queue</span>
+        </div>
+        <p class="ue-hero-credit lbl" style="margin-top:1.2rem;opacity:.45;font-size:.72rem;letter-spacing:.08em;">Technical Artist / Pipeline &amp; Camera Design &mdash; YUN-HSUAN CHENG</p>
+    </div>
+</header>
+
+<!-- ============ REEL ============ -->
+<section class="ue-sec" id="reel">
+    <div class="ue-sec-head rv">
+        <span class="lbl">00</span>
+        <h2>Demo reel</h2>
+        <span class="lbl">63 sec</span>
+    </div>
+    <div class="ue-reel">
+        <video id="reelVid" controls playsinline preload="auto" muted poster="images/unreal/reel_poster.jpg">
+            <source src="videos/unreal_demo_reel.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="ue-reel-meta rv">
+        <span class="lbl">Live performance · Character · Mocap · Niagara</span>
+        <span class="lbl">Unreal Engine 5</span>
+    </div>
+</section>
+
+<!-- ============ WORK ============ -->
+<section class="ue-sec" id="work">
+    <div class="ue-sec-head rv">
+        <span class="lbl">01</span>
+        <h2>Selected work</h2>
+    </div>
+
+    <div class="ue-works">
+
+        <article class="ue-work w-full rv">
+            <div class="ue-work-fig" data-lb="0">
+                <img src="images/unreal/live_stage.jpg" alt="Live show — four MetaHuman characters driven in real time">
+            </div>
+            <div class="ue-work-cap">
+                <div>
+                    <div class="ue-siggraph">Showcase — SIGGRAPH 2026</div>
+                    <h3>Live real-time performance</h3>
+                    <div class="ue-work-roles">
+                        <span>Character design and MetaHuman build</span>
+                        <span>Chaos Cloth setup for costume and hair</span>
+                        <span>Mocap pipeline, capture through to engine</span>
+                        <span>Stage AV layer: LED wall, multi-display sync, show-control desk</span>
+                    </div>
+                </div>
+                <div class="ue-work-tags">
+                    <span class="lbl">Character design</span><span class="lbl">Chaos Cloth</span>
+                    <span class="lbl">Mocap pipeline</span><span class="lbl">Live Link</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="ue-work w-full rv">
+            <div class="ue-work-cap" style="margin-bottom:1.8rem">
+                <div>
+                    <h3>Character design and cloth</h3>
+                    <div class="ue-work-tags" style="margin-top:1.4rem">
+                        <span class="lbl">MetaHuman Creator</span><span class="lbl">Chaos Cloth</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ue-char-grid">
+                <div class="ue-work-fig" data-lb="5"><img src="images/unreal/char_3.png" alt="Character — Orc" loading="lazy"></div>
+                <div class="ue-work-fig" data-lb="6"><img src="images/unreal/char_1.png" alt="Character — Monk" loading="lazy"></div>
+                <div class="ue-work-fig" data-lb="7"><img src="images/unreal/char_4.png" alt="Character — Fighter" loading="lazy"></div>
+                <div class="ue-work-fig" data-lb="8"><img src="images/unreal/char_2.png" alt="Character — Elf" loading="lazy"></div>
+            </div>
+            <div class="ue-mtm-inline rv">
+                <div class="ue-mtm-split">
+                    <div class="ue-mtm-left">
+                        <span class="lbl" style="opacity:.5">Pipeline</span>
+                        <h3 class="ue-mtm-title">Mesh to<br>MetaHuman</h3>
+                        <p class="lbl ue-mtm-sub">Scan → rigged character</p>
+                        <div class="ue-mtm-steps">
+                            <div class="ue-mtm-step">
+                                <span class="lbl">01</span>
+                                <h4>Capture</h4>
+                            </div>
+                            <div class="ue-mtm-step">
+                                <span class="lbl">02</span>
+                                <h4>Identity solve</h4>
+                            </div>
+                            <div class="ue-mtm-step">
+                                <span class="lbl">03</span>
+                                <h4>Auto-rig</h4>
+                            </div>
+                            <div class="ue-mtm-step">
+                                <span class="lbl">04</span>
+                                <h4>Live Link</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ue-mtm-imgs">
+                        <div class="ue-view" data-lb="25"><img src="images/unreal/mtm_view_1.jpg" alt="Scan and finished character" loading="lazy"></div>
+                        <div class="ue-view" data-lb="26"><img src="images/unreal/mtm_view_2.jpg" alt="Costumed character beside scan" loading="lazy"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ue-mtm-gallery rv">
+                <div class="ue-mtm-gal-img"><img src="images/unreal/cinematic_02.jpg" alt="Cinematic render — environment" loading="lazy"></div>
+                <div class="ue-mtm-gal-img"><img src="images/unreal/cinematic_03.png" alt="Cinematic render — dragon" loading="lazy"></div>
+                <div class="ue-mtm-gal-vid">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/mocap_clip.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </article>
+
+        <article class="ue-work w-right rv">
+            <div class="ue-work-fig">
+                <img src="images/unreal/theater_stage.jpg" alt="Collaboration — dance theater with real-time mocap">
+            </div>
+            <div class="ue-work-cap">
+                <span class="lbl">Collaboration</span>
+                <h3>Dance Theater with Real-time Mocap</h3>
+                <div class="ue-work-tags" style="margin-top:1.4rem">
+                    <span class="lbl">Live Link</span><span class="lbl">Motion Capture</span><span class="lbl">Real-time</span>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="ue-work w-full rv">
+            <div class="ue-work-cap" style="margin-bottom:1.8rem">
+                <div>
+                    <h3>Interactive Niagara Systems</h3>
+                    <div class="ue-work-tags" style="margin-top:1.4rem">
+                        <span class="lbl">Niagara</span><span class="lbl">GPU Particles</span><span class="lbl">Real-time VFX</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ue-char-grid">
+                <div class="ue-work-fig"><img src="images/unreal/niagara_water.jpg" alt="Interactive water simulation reacting to character motion" loading="lazy"></div>
+                <div class="ue-work-fig"><img src="images/unreal/niagara_water2.jpg" alt="Particle response to body motion" loading="lazy"></div>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="ue-cta">
+    <h2 class="rv">Available for<br>Technical Artist roles.<br>
+        <a href="mailto:yunhsuan.technoart@outlook.com">Get in touch →</a></h2>
+    <div class="ue-links rv">
+        <a href="projects.html">All projects</a>
+        <a href="about.html">About</a>
+        <a href="https://instagram.com/sam_smt_c" target="_blank" rel="noopener">Instagram</a>
+    </div>
+</section>
+
+<footer class="ue-foot">
+    <span class="lbl">© 2026 YunHsuan Cheng</span>
+    <nav>
+        <a href="index.html" class="lbl">Home</a>
+        <a href="#top" class="lbl">Back to top</a>
+    </nav>
+</footer>
+
+<div class="ue-lb" id="lb">
+    <button class="ue-lb-x" id="lbX" aria-label="Close">Close</button>
+    <img id="lbImg" src="" alt="">
+    <div class="ue-lb-bar">
+        <button id="lbP" aria-label="Previous">← Prev</button>
+        <span class="lbl" id="lbC"></span>
+        <button id="lbN" aria-label="Next">Next →</button>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ---------- data ---------- */
+var GROUPS = [
+    { label: 'Live Performance', shots: [
+        ['live_stage.jpg','Four MetaHumans, driven live','Live performance'],
+        ['live_audience.jpg','Stage and audience','Live performance'],
+        ['live_crew.jpg','Show control desk','Multi-display sync'],
+        ['live_volume.jpg','Mocap volume and LED wall','Live character preview']
+    ]},
+    { label: 'MetaHuman & Character', shots: [
+        ['scan_metahuman.jpg','Scan to rigged character','RealityScan'],
+        ['character_cloth.jpg','Stylized character with simulated cloth','Chaos Cloth'],
+        ['facial_livelink.jpg','Facial solve to stylized rig','Live Link'],
+        ['metahuman_build.jpg','Character build and rig setup','MetaHuman Creator'],
+        ['blueprint_livelink.jpg','Live Link setup and character logic','Blueprint'],
+        ['mtm_rig_monk.jpg','MetaHuman rig — Monk character','MetaHuman Creator'],
+        ['mtm_rig_monk_p.jpg','Monk rig — profile view','MetaHuman Creator'],
+        ['mtm_scan_monk.jpg','Photogrammetry scan — Monk','RealityScan'],
+        ['mtm_rig_elf.jpg','MetaHuman rig — Elf character','MetaHuman Creator'],
+        ['mtm_rig_elf_p.jpg','Elf rig — profile view','MetaHuman Creator'],
+        ['mtm_scan_elf.jpg','Photogrammetry scan — Elf','RealityScan']
+    ]},
+    { label: 'Niagara VFX', shots: [
+        ['niagara_water.jpg','Interactive water simulation','Niagara'],
+        ['niagara_water2.jpg','Particle response to body motion','Niagara']
+    ]},
+
+    { label: 'Virtual Camera & Cinematic', shots: [
+        ['camera_01.jpg','Opening sweep','Sequencer'],
+        ['camera_02.jpg','Hero shot composition','Virtual camera'],
+        ['camera_03.jpg','Character motion pass','Virtual camera'],
+        ['cinematic_wide.jpg','Environment establishing shot','Cinematic render'],
+        ['render_char.jpg','Cinematic character render','Movie Render Queue'],
+        ['render_env.jpg','Environment lighting','Scene assembly']
+    ]},
+    { label: 'Behind the Scenes', shots: [
+        ['team.jpg','Production team','On location']
+    ]}
+];
+var MTM = [
+    ['mtm_view_1.jpg','Scan and finished character in scene','Unreal viewport'],
+    ['mtm_view_2.jpg','Costumed character beside source scan','Unreal viewport'],
+    ['mtm_view_3.jpg','Profile comparison pass','Unreal viewport'],
+    ['mtm_view_4.jpg','Full cast assembled in one scene','Unreal viewport']
+];
+/* Flat array for lightbox: all group shots first, then MTM (indices 25-28) */
+var ALL = [];
+GROUPS.forEach(function(g) { g.shots.forEach(function(s) { ALL.push(s); }); });
+ALL = ALL.concat(MTM);
+var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- gallery (themed groups) ---------- */
+(function() {
+    var html = '', gIdx = 0;
+    GROUPS.forEach(function(g, gi) {
+        var delay = gi === 0 ? '' : (gi === 1 ? ' rv-d1' : ' rv-d2');
+        html += '<div class="ue-gallery-group rv' + delay + '">';
+        html += '<span class="ue-gallery-label lbl">' + g.label + '</span>';
+        html += '<div class="ue-grid-group">';
+        g.shots.forEach(function(s) {
+            html += '<figure class="ue-tile" data-lb="' + gIdx + '">' +
+                    '<img src="images/unreal/' + s[0] + '" alt="' + s[1] + '" loading="lazy">' +
+                    '<figcaption class="lbl">' + s[1] + '</figcaption></figure>';
+            gIdx++;
+        });
+        html += '</div></div>';
+    });
+    var gg = document.getElementById('gallery-groups');
+    if (gg) gg.innerHTML = html;
+})();
+
+/* ---------- lightbox ---------- */
+var lb = document.getElementById('lb'), lbI = document.getElementById('lbImg'),
+    lbC = document.getElementById('lbC'), idx = 0;
+function show(i) {
+    idx = (i + ALL.length) % ALL.length;
+    var s = ALL[idx];
+    lbI.src = 'images/unreal/' + s[0]; lbI.alt = s[1];
+    lbC.textContent = s[1] + ' — ' + s[2] + '  ·  ' +
+        String(idx + 1).padStart(2, '0') + '/' + ALL.length;
+}
+function openLb(i) { show(i); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+document.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest('[data-lb]') : null;
+    if (t) openLb(+t.dataset.lb);
+});
+document.getElementById('lbX').addEventListener('click', closeLb);
+document.getElementById('lbP').addEventListener('click', function (e) { e.stopPropagation(); show(idx - 1); });
+document.getElementById('lbN').addEventListener('click', function (e) { e.stopPropagation(); show(idx + 1); });
+lb.addEventListener('click', function (e) { if (e.target === lb || e.target === lbI) closeLb(); });
+document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') show(idx - 1);
+    if (e.key === 'ArrowRight') show(idx + 1);
+});
+
+/* ---------- reveal ---------- */
+var io = new IntersectionObserver(function (es) {
+    es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+
+/* ---------- reel autoplay on scroll ---------- */
+(function() {
+    var rv = document.getElementById('reelVid');
+    if (!rv) return;
+    var rObs = new IntersectionObserver(function(es) {
+        es.forEach(function(en) {
+            if (en.isIntersecting) {
+                rv.play().catch(function(){});
+            } else {
+                rv.pause();
+            }
+        });
+    }, { threshold: 0.5 });
+    rObs.observe(rv);
+})();
+
+/* ---------- nav ---------- */
+var nav = document.getElementById('nav');
+addEventListener('scroll', function () { nav.classList.toggle('solid', scrollY > 60); }, { passive: true });
+
+/* ---------- parallax on work images ---------- */
+if (!REDUCE) {
+    var figs = [].slice.call(document.querySelectorAll('.ue-work-fig img'));
+    var tick = false;
+    addEventListener('scroll', function () {
+        if (tick) return;
+        tick = true;
+        requestAnimationFrame(function () {
+            var vh = innerHeight;
+            figs.forEach(function (im) {
+                var r = im.parentNode.getBoundingClientRect();
+                if (r.bottom < 0 || r.top > vh) return;
+                var p = (r.top + r.height / 2 - vh / 2) / vh;
+                im.style.transform = 'scale(1.12) translate3d(0,' + (p * -22).toFixed(2) + 'px,0)';
+            });
+            tick = false;
+        });
+    }, { passive: true });
+}
+
+/* ---------- WebGL hero ---------- */
+(function () {
+    var cv = document.getElementById('gl'), vid = document.getElementById('heroSrc');
+    function fallback() { cv.style.display = 'none'; vid.style.display = 'block'; }
+    if (REDUCE || typeof THREE === 'undefined') { fallback(); return; }
+
+    var renderer;
+    try {
+        renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: false, alpha: false });
+    } catch (err) { fallback(); return; }
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+
+    var scene = new THREE.Scene();
+    var cam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+    var tex = new THREE.VideoTexture(vid);
+    tex.minFilter = THREE.LinearFilter;
+    tex.magFilter = THREE.LinearFilter;
+
+    var uni = {
+        uTex:  { value: tex },
+        uTime: { value: 0 },
+        uRes:  { value: new THREE.Vector2(1, 1) },
+        uVid:  { value: new THREE.Vector2(16, 9) },
+        uM:    { value: new THREE.Vector2(0, 0) }
+    };
+
+    var mat = new THREE.ShaderMaterial({
+        uniforms: uni,
+        vertexShader:
+            'varying vec2 vUv;' +
+            'void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }',
+        fragmentShader:
+            'precision highp float;' +
+            'varying vec2 vUv;' +
+            'uniform sampler2D uTex; uniform float uTime;' +
+            'uniform vec2 uRes; uniform vec2 uVid; uniform vec2 uM;' +
+            'float hash(vec2 p){ return fract(sin(dot(p, vec2(12.9898,78.233))) * 43758.5453); }' +
+            'void main(){' +
+            '  float ca = uRes.x / uRes.y;' +
+            '  float va = uVid.x / uVid.y;' +
+            '  vec2 uv = vUv;' +
+            '  if (ca > va) { float s = va / ca; uv.y = (uv.y - 0.5) * s + 0.5; }' +
+            '  else { float s = ca / va; uv.x = (uv.x - 0.5) * s + 0.5; }' +
+            '  vec2 c = uv - 0.5;' +
+            '  float r = length(c);' +
+            '  uv += c * r * r * 0.055;' +
+            '  uv.x += sin(uv.y * 5.0 + uTime * 0.32) * 0.0035;' +
+            '  uv.y += cos(uv.x * 4.0 + uTime * 0.24) * 0.0028;' +
+            '  uv += uM * 0.016;' +
+            '  float sh = 0.0016 + r * 0.0022;' +
+            '  vec3 col;' +
+            '  col.r = texture2D(uTex, uv + vec2(sh, 0.0)).r;' +
+            '  col.g = texture2D(uTex, uv).g;' +
+            '  col.b = texture2D(uTex, uv - vec2(sh, 0.0)).b;' +
+            '  col *= 1.0 - smoothstep(0.34, 0.88, r) * 0.72;' +
+            '  col += (hash(gl_FragCoord.xy + uTime) - 0.5) * 0.035;' +
+            '  col = pow(max(col, 0.0), vec3(1.06)) * 0.92;' +
+            '  gl_FragColor = vec4(col, 1.0);' +
+            '}'
+    });
+
+    scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), mat));
+
+    function resize() {
+        var w = cv.clientWidth, h = cv.clientHeight;
+        renderer.setSize(w, h, false);
+        uni.uRes.value.set(w, h);
+    }
+    addEventListener('resize', resize);
+    resize();
+
+    vid.addEventListener('loadedmetadata', function () {
+        uni.uVid.value.set(vid.videoWidth || 16, vid.videoHeight || 9);
+    });
+    vid.play().catch(function () {});
+
+    var mx = 0, my = 0;
+    addEventListener('pointermove', function (e) {
+        mx = (e.clientX / innerWidth - 0.5) * 2;
+        my = (e.clientY / innerHeight - 0.5) * 2;
+    }, { passive: true });
+
+    var visible = true;
+    new IntersectionObserver(function (es) { visible = es[0].isIntersecting; })
+        .observe(document.querySelector('.ue-hero'));
+
+    var t0 = performance.now();
+    (function loop(now) {
+        requestAnimationFrame(loop);
+        if (!visible) return;
+        uni.uTime.value = (now - t0) * 0.001;
+        uni.uM.value.x += (mx - uni.uM.value.x) * 0.045;
+        uni.uM.value.y += (my - uni.uM.value.y) * 0.045;
+        renderer.render(scene, cam);
+    })(t0);
+})();
+</script>
+</body>
+</html>

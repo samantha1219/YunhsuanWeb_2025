@@ -251,9 +251,14 @@
         }
 
         .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 3rem;
+        }
+        .detail-category.edu-category .detail-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
 
         .detail-category {
@@ -453,29 +458,6 @@
             <h2 class="details-title">Background & Experience</h2>
             
             <div class="details-grid">
-                <div class="detail-category">
-                    <h3>Education</h3>
-                    <div class="detail-list">
-                        <div class="detail-item">
-                            <strong>California Institute of the Arts (CalArts)</strong>
-                            <div class="period">2024 - Present</div>
-                            MFA in Technology and Art
-                        </div>
-                        <div class="detail-item">
-                            <strong>National Tsing Hua University</strong>
-                            <div class="period">2020 - 2024</div>
-                            BFA in Science and Technology<br>
-                            Interdisciplinary Programme of Technology and Art
-                        </div>
-                        <div class="detail-item">
-                            <strong>Festival University</strong>
-                            <div class="period">2022 Aug - Sep</div>
-                            ECTS certificates<br>
-                            launched by Ars Electronica Centre & Johannes Kepler University
-                        </div>
-                    </div>
-                </div>
-
                 <!-- <div class="detail-category">
                     <h3>Awards</h3>
                     <div class="detail-list">
@@ -498,6 +480,11 @@
                     <h3>Work Experience</h3>
                     <div class="detail-list">
                         <div class="detail-item">
+                            <strong>Technical Artist — Freelance</strong>
+                            <div class="period">2025 — 2026</div>
+                            Independent contractor specializing in real-time virtual production pipelines. Delivered end-to-end Technical Artist work across live performance, cinematic rendering, and character development — encompassing motion capture integration, MetaHuman rigging, Chaos Cloth simulation, Niagara VFX, and virtual camera design in Unreal Engine 5. Clients include live entertainment productions and collaborative theater companies.
+                        </div>
+                                                <div class="detail-item">
                             <strong>Peppercorns Interactive Media Art</strong>
                             <div class="period">2022 Oct - 2023 Feb</div>
                             Internship: Software programming, project management, hardware equipment management, exhibition entry, work recording, and video editing.
@@ -514,6 +501,25 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="detail-category edu-category">
+                    <h3>Education</h3>
+                    <div class="detail-list">
+                        <div class="detail-item">
+                            <strong>California Institute of the Arts (CalArts)</strong>
+                            <div class="period">2024 - 2026</div>
+                            MFA in Technology and Art
+                        </div>
+                        <div class="detail-item">
+                            <strong>National Tsing Hua University</strong>
+                            <div class="period">2020 - 2024</div>
+                            BFA in Science and Technology<br>
+                            Interdisciplinary Programme of Technology and Art
+                        </div>
+
+                    </div>
+                </div>
+
 
                 <!-- <div class="detail-category">
                     <h3>Other Experience</h3>
